@@ -32,10 +32,12 @@ func main() {
 		1,
 		15,
 		-121,
+		-123,
+		120,
 	}
 
 	for _, num := range test_nums {
+		fmt.Printf("reverse(%d) = %d\n", num, reverse(num))
 		fmt.Printf("isPalindrome(%d) = %v\n", num, isPalindrome(num))
 	}
-
 }
