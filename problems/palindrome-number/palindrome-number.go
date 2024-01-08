@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func reverse(x int) int {
 	res := 0
@@ -34,10 +37,13 @@ func main() {
 		-121,
 		-123,
 		120,
+		401104,
+		399993,
 	}
 
 	for _, num := range test_nums {
-		fmt.Printf("reverse(%d) = %d\n", num, reverse(num))
-		fmt.Printf("isPalindrome(%d) = %v\n", num, isPalindrome(num))
+		fmt.Printf("reverse(%d) -> %d\n", num, reverse(num))
+		fmt.Printf("isPalindrome(%d) -> %v\n", num, isPalindrome(num))
+		fmt.Println(strings.Repeat("-", 32))
 	}
 }
