@@ -21,7 +21,7 @@ func convert(s string, numRows int) string {
 			output[i_output] = input[i_cur]
 			i_next += (numRows * 2) - offset
 			i_diag = i_next - (n * 2)
-			if i_diag != i_cur && i_diag != i_next && i_diag < len(output) {
+			if i_diag != i_cur && i_diag != i_next && i_diag < len(input) {
 				i_output++
 				output[i_output] = input[i_diag]
 			}
@@ -32,13 +32,25 @@ func convert(s string, numRows int) string {
 }
 
 func main() {
-	input := "PAYPALISHIRING"
-	numRows := 4
+	type TestData struct {
+		s       string
+		numRows int
+	}
 
-	fmt.Printf(
-		"convert(%s, %d) -> %s\n",
-		input,
-		numRows,
-		convert(input, numRows),
-	)
+	tests := []TestData{
+		{"PAYPALISHIRING", 3},
+		{"PAYPALISHIRING", 4},
+		{"A", 1},
+		{"AB", 1},
+	}
+
+	for _, test := range tests {
+		fmt.Printf(
+			"convert('%s', %d) -> '%s'\n",
+			test.s,
+			test.numRows,
+			convert(test.s, test.numRows),
+		)
+
+	}
 }
